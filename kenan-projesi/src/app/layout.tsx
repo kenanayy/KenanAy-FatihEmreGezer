@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import TemaSaglayici from "./components/TemaSaglayici";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,17 +14,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Web Programlama Dersi Projesi",
-  description: "Next.js ve Tailwind CSS ile hazırlanmış öğrenci ders projesi.",
+  title: "Oyun Portalı - Web Tasarımı ve Programlama",
+  description: "Web Tasarımı ve Programlama Dersi - Hafta 6 Tailwind CSS Uygulaması",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="tr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-white text-slate-900 dark:bg-slate-900 dark:text-white transition-colors duration-200">
+        <TemaSaglayici>{children}</TemaSaglayici>
+      </body>
     </html>
   );
 }
