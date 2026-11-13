@@ -1,6 +1,7 @@
 @import "tailwindcss";
+@config "../../tailwind.config.js";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:is(.dark, .dark *));
 
 html {
   scroll-behavior: smooth;
@@ -9,4 +10,3 @@ html {
 body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
-
